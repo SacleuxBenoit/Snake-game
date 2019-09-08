@@ -2,7 +2,7 @@ window.onload = function(){
 
     let canvas;
     let ctx;
-    let delay = 1000;
+    let delay = 100;
     let xCoord = 0;
     let yCoord = 0;
 
@@ -20,10 +20,11 @@ window.onload = function(){
     }
     
     function refreshCanvas(){
-        xCoord += 2;
-        yCoord += 2;
+        xCoord += 5;
+        yCoord += 5;
         ctx.clearRect(0,0,canvas.width,canvas.height);
         ctx.fillStyle = "#ff0000";
         ctx.fillRect(xCoord ,yCoord ,100 ,50);
+        setTimeout(refreshCanvas,delay);
     }
 }
