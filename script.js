@@ -1,6 +1,8 @@
 window.onload = function(){
 
-    let canvas;
+    let canvasWidth = 900;
+    let canvasHeight = 600;
+    var blockSize = 30;
     let ctx;
     let delay = 100;
     let xCoord = 0;
@@ -9,9 +11,9 @@ window.onload = function(){
     init();
 
     function init(){
-        canvas = document.createElement('canvas');
-        canvas.width = 900;
-        canvas.height = 600;
+        let canvas = document.createElement('canvas');
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
         canvas.style.border = "1px solid";
         document.body.appendChild(canvas);
         ctx = canvas.getContext('2d');
@@ -22,7 +24,7 @@ window.onload = function(){
     function refreshCanvas(){
         xCoord += 5;
         yCoord += 5;
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0,0,canvasWidth,canvasHeight);
         ctx.fillStyle = "#ff0000";
         ctx.fillRect(xCoord ,yCoord ,100 ,50);
         setTimeout(refreshCanvas,delay);
