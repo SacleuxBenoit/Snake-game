@@ -29,4 +29,16 @@ window.onload = function(){
         ctx.fillRect(xCoord ,yCoord ,100 ,50);
         setTimeout(refreshCanvas,delay);
     }
+
+    function Snake(body){
+        this.body = body;
+        this.draw = function()
+        {
+            ctx.save();
+            ctx.fillStyle = "#ff0000";
+            for();
+            
+        };
+    }
+
 }
