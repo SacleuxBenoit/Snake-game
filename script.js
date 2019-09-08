@@ -5,8 +5,7 @@ window.onload = function(){
     var blockSize = 30;
     let ctx;
     let delay = 100;
-    let xCoord = 0;
-    let yCoord = 0;
+    let snakee;
 
     init();
 
@@ -17,13 +16,12 @@ window.onload = function(){
         canvas.style.border = "1px solid";
         document.body.appendChild(canvas);
         ctx = canvas.getContext('2d');
+        snakee = new Snake([[6,4], [5,4], [4,4]]);
         refreshCanvas();
         
     }
     
     function refreshCanvas(){
-        xCoord += 5;
-        yCoord += 5;
         ctx.clearRect(0,0,canvasWidth,canvasHeight);
         ctx.fillStyle = "#ff0000";
         ctx.fillRect(xCoord ,yCoord ,100 ,50);
@@ -36,7 +34,10 @@ window.onload = function(){
         {
             ctx.save();
             ctx.fillStyle = "#ff0000";
-            for();
+            for(let i = 0; i < this.body.lenght; i++ );{
+                drawBlock(ctx, this.body[i]);
+            }
+        ctx.restore();
             
         };
     }
