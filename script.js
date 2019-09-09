@@ -2,7 +2,7 @@ window.onload = function(){
 
     let canvasWidth = 900;
     let canvasHeight = 600;
-    var blockSize = 30;
+    let blockSize = 30;
     let ctx;
     let delay = 100;
     let snakee;
@@ -23,9 +23,14 @@ window.onload = function(){
     
     function refreshCanvas(){
         ctx.clearRect(0,0,canvasWidth,canvasHeight);
-        ctx.fillStyle = "#ff0000";
-        ctx.fillRect(xCoord ,yCoord ,100 ,50);
+        snakee.draw();
         setTimeout(refreshCanvas,delay);
+    }
+
+    function drawBlock(ctx, position){
+        let x = position[0] * blockSize;
+        let y = position[1] * blockSize;
+        ctx.fillRect(x,y, blockSize, blockSize); 
     }
 
     function Snake(body){
@@ -34,10 +39,11 @@ window.onload = function(){
         {
             ctx.save();
             ctx.fillStyle = "#ff0000";
-            for(let i = 0; i < this.body.lenght; i++ );{
+            for(let i = 0; i < this.body.length; i++)
+            {
                 drawBlock(ctx, this.body[i]);
             }
-        ctx.restore();
+            ctx.restore();
             
         };
     }
